@@ -1,3 +1,4 @@
+--upgrade pip
 transformers
 sklearn
 langchain
@@ -7,5 +8,5 @@ numpy
 plotly
 scipy
 openai
-sklearn.decomposition
+
 pydantic
