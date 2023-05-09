@@ -1,0 +1,8 @@
+transformers
+sklearn
+langchain
+matplotlib
+pandas
+numpy
+plotly
+scipy
