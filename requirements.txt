@@ -8,3 +8,4 @@ plotly
 scipy
 openai
 sklearn.decomposition
+pydantic
