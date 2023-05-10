@@ -14,7 +14,7 @@ st.title("AI-Coach")
 
 st.sidebar.header("Instuctions")
 st.sidebar.info("This is a demo of an AI-Coach. You can ask it anything, but it's best at answering questions about the world and its current state.")
-API_0 = os.getenv('OPENAI_API_KEY')
+API_0 = st.secrets["api_key"]
 modus = st.sidebar.selectbox(label= 'Modus', options=["Journaling questions", "Analysis", "Therapy Chatbot"])
 # automatisches auswählen? Word embeddings immer ada.
 model = st.sidebar.selectbox(label= 'Model', options=["gpt-3.5-turbo", "text-davinci-003", "text-ada-001"])
