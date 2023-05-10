@@ -20,9 +20,16 @@ usernames = ['patrick','leon']
 passwords = ['test123','pushups']
 
 hashed_passwords = stauth.Hasher(passwords).generate()
-    
-authenticator = stauth.authenticate(names,usernames,hashed_passwords,
-    'ai_coach','abcdef',cookie_expiry_days=30)
+   
+authenticator = Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
+# authenticator = Authenticate(names,usernames,hashed_passwords,
+#     'ai_coach','abcdef',cookie_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status == False:
