@@ -5,6 +5,13 @@ import numpy as np
 from datetime import datetime
 import os
 
+# 0. streamlit settings/page configuration
+st.set_page_config(page_title="GPT-3 Chatbot", page_icon=":rocket:", layout="wide")
+#st.markdown("# Main page")
+st.sidebar.markdown("#  Main page")
+st.title("AI-Coach")
+
+
 def check_password():
     """Returns `True` if the user had a correct password."""
 
@@ -45,11 +52,7 @@ if check_password():
     st.button("Click me")
 
 
-# 0. streamlit settings/page configuration
-st.set_page_config(page_title="GPT-3 Chatbot", page_icon=":rocket:", layout="wide")
-#st.markdown("# Main page")
-st.sidebar.markdown("#  Main page")
-st.title("AI-Coach")
+
 
 st.sidebar.header("Instuctions")
 st.sidebar.info("This is a demo of an AI-Coach. You can ask it anything, but it's best at answering questions about the world and its current state.")
