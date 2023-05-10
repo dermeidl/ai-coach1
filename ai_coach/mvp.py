@@ -19,7 +19,7 @@ names = ['John Smith','Rebecca Briggs']
 usernames = ['patrick','leon']
 passwords = ['test123','pushups']
 
-hashed_passwords = stauth.hasher(passwords).generate()
+hashed_passwords = stauth.Hasher(passwords).generate()
     
 authenticator = stauth.authenticate(names,usernames,hashed_passwords,
     'ai_coach','abcdef',cookie_expiry_days=30)
