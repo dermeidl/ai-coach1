@@ -11,7 +11,7 @@ from datetime import datetime
 import os
 
 #--- USER AUTHENTICATION ---
-file_path = Path(__fiel__).parent / "hased_pw.pkl"
+file_path = Path(__file__).parent / "hased_pw.pkl"
 with file_path.open("rb") as file:
     hased_passwords = pickle.load(file)
     
