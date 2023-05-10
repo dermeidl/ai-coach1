@@ -15,7 +15,7 @@ import os
 # with file_path.open("rb") as file:
 #     hased_passwords = pickle.load(file)
     
-autenicator = stauth.Authenitcate(names, st.session_state["username"], st.secrets["passwords"],
+autenicator = stauth.Authenitcate(names, st.secrets["username"], st.secrets["passwords"],
                                   "ai-coach", "abcdef", cockies_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login", "main")
 
