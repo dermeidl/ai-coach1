@@ -7,9 +7,7 @@ import os
 
 # 0. streamlit settings/page configuration
 st.set_page_config(page_title="GPT-3 Chatbot", page_icon=":rocket:", layout="wide")
-#st.markdown("# Main page")
-st.sidebar.markdown("#  Main page")
-st.title("AI-Coach")
+
 
 
 def check_password():
@@ -50,6 +48,14 @@ def check_password():
 if check_password():
     st.write("Here goes your normal Streamlit app...")
     st.button("Click me")
+
+
+
+
+
+#st.markdown("# Main page")
+st.sidebar.markdown("#  Main page")
+st.title("AI-Coach")
 
 
 
