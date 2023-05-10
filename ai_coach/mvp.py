@@ -14,8 +14,9 @@ import os
 # file_path = Path(__file__).parent / "hased_pw.pkl"
 # with file_path.open("rb") as file:
 #     hased_passwords = pickle.load(file)
+hashed_passwords = stauth.hasher(st.secrets["passwords"]).generate()
     
-autenicator = stauth.Authenitcate(names, st.secrets["username"], st.secrets["passwords"],
+autenicator = stauth.Authenitcate(names, st.secrets["username"], hashed_passwords,
                                   "ai-coach", "abcdef", cockies_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login", "main")
 
