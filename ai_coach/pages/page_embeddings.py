@@ -15,7 +15,7 @@ from langchain.llms import OpenAI
 
 
 # define openai api key and embedding model
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets["api_key"]
 API_0 = st.secrets["api_key"]
 EMBEDDING_MODEL = "text-embedding-ada-002"
 GPT_MODEL = "gpt-3.5-turbo"
