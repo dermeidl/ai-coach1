@@ -8,5 +8,4 @@ numpy
 plotly
 scipy
 openai
-
 pydantic
