@@ -8,5 +8,5 @@ numpy
 plotly
 scipy
 openai
-os
 datetime
+altair
