@@ -22,7 +22,7 @@ passwords = ['test123','pushups']
 hashed_passwords = stauth.hasher(passwords).generate()
     
 authenticator = stauth.authenticate(names,usernames,hashed_passwords,
-    'ai-coach','abcdef',cookie_expiry_days=30)
+    'ai_coach','abcdef',cookie_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status == False:
