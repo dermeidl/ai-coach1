@@ -11,12 +11,12 @@ from datetime import datetime
 import os
 
 #--- USER AUTHENTICATION ---
-file_path = Path(__file__).parent / "hased_pw.pkl"
-with file_path.open("rb") as file:
-    hased_passwords = pickle.load(file)
+# file_path = Path(__file__).parent / "hased_pw.pkl"
+# with file_path.open("rb") as file:
+#     hased_passwords = pickle.load(file)
     
-autenicator = stauth.Authenitcate(names, usernames, handes_passwords,
-                                  "sales_dashboard", "abcdef", cockies_expiry_days=30)
+autenicator = stauth.Authenitcate(names, st.session_state["username"], st.secrets["passwords"],
+                                  "ai-coach", "abcdef", cockies_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status == False:
