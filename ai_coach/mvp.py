@@ -1,3 +1,8 @@
+import pickle
+from pathlib import Path
+import streamlit_authenticator as stauth 
+# all for authentication
+
 import streamlit as st
 from langchain.llms import OpenAI
 import pandas as pd
@@ -5,48 +10,66 @@ import numpy as np
 from datetime import datetime
 import os
 
+#--- USER AUTHENTICATION ---
+file_path = Path(__fiel__).parent / "hased_pw.pkl"
+with file_path.open("rb") as file:
+    hased_passwords = pickle.load(file)
+    
+autenicator = stauth.Authenitcate(names, usernames, handes_passwords,
+                                  "sales_dashboard", "abcdef", cockies_expiry_days=30)
+name, authentication_status, username = authenticator.login("Login", "main")
 
+if authentication_status == False:
+    st.error("Username/password is incorrect")
+if authentication_status == None:
+    st.warning("Please enter your nusername and password")
+if authentication_status == True:
+    
 
-def check_password():
-    """Returns `True` if the user had a correct password."""
+# def check_password():
+#     """Returns `True` if the user had a correct password."""
 
-    def password_entered():
-        """Checks whether a password entered by the user is correct."""
-        if (
-            st.session_state["username"] in st.secrets["passwords"]
-            and st.session_state["password"]
-            == st.secrets["passwords"][st.session_state["username"]]
-        ):
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # don't store username + password
-            del st.session_state["username"]
-        else:
-            st.session_state["password_correct"] = False
+#     def password_entered():
+#         """Checks whether a password entered by the user is correct."""
+#         if (
+#             st.session_state["username"] in st.secrets["passwords"]
+#             and st.session_state["password"]
+#             == st.secrets["passwords"][st.session_state["username"]]
+#         ):
+#             st.session_state["password_correct"] = True
+#             del st.session_state["password"]  # don't store username + password
+#             del st.session_state["username"]
+#         else:
+#             st.session_state["password_correct"] = False
 
-    if "password_correct" not in st.session_state:
-        # First run, show inputs for username + password.
-        st.text_input("Username", on_change=password_entered, key="username")
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        st.text_input("Username", on_change=password_entered, key="username")
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        st.error("😕 User not known or password incorrect")
-        return False
-    else:
-        # Password correct.
-        return True
+#     if "password_correct" not in st.session_state:
+#         # First run, show inputs for username + password.
+#         st.text_input("Username", on_change=password_entered, key="username")
+#         st.text_input(
+#             "Password", type="password", on_change=password_entered, key="password"
+#         )
+#         return False
+#     elif not st.session_state["password_correct"]:
+#         # Password not correct, show input + error.
+#         st.text_input("Username", on_change=password_entered, key="username")
+#         st.text_input(
+#             "Password", type="password", on_change=password_entered, key="password"
+#         )
+#         st.error("😕 User not known or password incorrect")
+#         return False
+#     else:
+#         # Password correct.
+#         return True
 
-if check_password():
-    # 0. streamlit settings/page configuration
+# if check_password():
+#     # 0. streamlit settings/page configuration
     st.set_page_config(page_title="GPT-3 Chatbot", page_icon=":rocket:", layout="wide")
     #st.markdown("# Main page")
+    authenticator.logout("Logout", "sidebar")
+    st.sidebar.title(f"Welcome {name}")
     st.sidebar.markdown("#  Main page")
+    
+    
     st.title("AI-Coach")
 
     st.sidebar.header("Instuctions")
