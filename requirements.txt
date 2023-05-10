@@ -8,4 +8,5 @@ numpy
 plotly
 scipy
 openai
-pydantic
+os
+datetime
