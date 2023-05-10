@@ -1,6 +1,6 @@
 pip == 23.1.2
 transformers
-sklearn == 0.24.2
+scikit-learn
 langchain
 matplotlib
 pandas
